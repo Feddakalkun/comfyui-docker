@@ -23,6 +23,11 @@ mingit.zip
 node.zip
 python_embed.zip
 
+# === OBSOLETE/UTILITY SCRIPTS (not part of deployment) ===
+scrape_reddit.bat
+update_suite.bat
+START_HERE.txt
+
 # === SYSTEM FILES ===
 .DS_Store
 Thumbs.db
