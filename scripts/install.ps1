@@ -205,6 +205,13 @@ foreach ($Node in $NodesConfig) {
             Write-Log "[$($Node.name)] - Installed successfully"
             $InstalledCount++
             
+            # Install node requirements if requirements.txt exists
+            $NodeReqFile = Join-Path $NodeDir "requirements.txt"
+            if (Test-Path $NodeReqFile) {
+                Write-Log "[$($Node.name)] - Installing node requirements..."
+                Run-Pip "install -r `"$NodeReqFile`" --no-warn-script-location"
+            }
+            
             # Create __init__.py if missing
             $InitFile = Join-Path $NodeDir "__init__.py"
             if (-not (Test-Path $InitFile)) {
@@ -267,14 +274,15 @@ $Deps = @(
     "aiohttp", "aiohttp-sse",
     "pytube", "yt-dlp", "moviepy", "youtube-transcript-api",
     "numba",
-    "opencv-python", "opencv-python-headless", "imageio", "imageio-ffmpeg", "av",
+    "opencv-contrib-python", "imageio", "imageio-ffmpeg", "av",
     "gdown", "pandas", "reportlab", "google-auth", "google-auth-oauthlib", "google-auth-httplib2",
     "GPUtil", "wandb",
     "piexif", "rembg",
     "pillow-heif",
     "librosa", "soundfile",
     "webdriver-manager", "beautifulsoup4", "lxml", "shapely",
-    "deepdiff", "fal_client"
+    "deepdiff", "fal_client", "matplotlib", "scipy", "scikit-image", "scikit-learn",
+    "timm", "colour-science", "blend-modes", "loguru"
 )
 Run-Pip "install $($Deps -join ' ')"
 
