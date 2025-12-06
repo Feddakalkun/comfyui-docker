@@ -4,94 +4,56 @@
   "nodes": [
     {
       "id": 1,
-      "type": "HuggingFaceDownloader",
+      "type": "WanVideoModelLoader",
+      "pos": [50, 300],
+      "size": { "0": 350, "1": 200 },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        { "name": "extra_model", "type": "VACEPATH", "link": 11 }
+      ],
+      "outputs": [
+        { "name": "model", "type": "WANVIDEOMODEL", "links": [1], "slot_index": 0 },
+        { "name": "vae", "type": "WANVAE", "links": [], "slot_index": 1 },
+        { "name": "t5", "type": "WANTEXTENCODER", "links": [], "slot_index": 2 }
+      ],
+      "properties": {
+        "Node name for S&R": "WanVideoModelLoader"
+      },
+      "widgets_values": [
+        "wan2.2_t2v_high_noise_14B_fp8_scaled.safetensors",
+        "fp8_e4m3fn_scaled",
+        "disabled",
+        "offload_device"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "WanVideoExtraModelSelect",
       "pos": [50, 50],
-      "size": { "0": 400, "1": 200 },
+      "size": { "0": 350, "1": 100 },
       "flags": {},
       "order": 0,
       "mode": 0,
       "inputs": [],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "HuggingFaceDownloader"
-      },
-      "widgets_values": [
-              "widgets_values": [
-        "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_t2v_14B_fp8_e4m3fn.safetensors diffusion_models wan2.1_t2v_14B_fp8_e4m3fn.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors text_encoders umt5_xxl_fp8_e4m3fn_scaled.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors vae wan_2.1_vae.safetensors",
-        true,
-        3,
-        0.0,
-        true,
-        false,
-        true,
-        false,
-        ""
-      ]
-    },
-    {
-      "id": 2,
-      "type": "WanVideoModelLoader",
-      "pos": [50, 400],
-      "size": { "0": 400, "1": 200 },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
       "outputs": [
-        { "name": "model", "type": "WANVIDEOMODEL", "links": [1], "slot_index": 0 },
-        { "name": "vae", "type": "WANVAE", "links": [2, 8], "slot_index": 1 },
-        { "name": "t5", "type": "WANTEXTENCODER", "links": [3], "slot_index": 2 }
+        { "name": "extra_model", "type": "VACEPATH", "links": [11], "slot_index": 0 }
       ],
       "properties": {
-        "Node name for S&R": "WanVideoModelLoader"
+        "Node name for S&R": "WanVideoExtraModelSelect"
       },
       "widgets_values": [
-        "wan2.1_t2v_14B_fp8_e4m3fn.safetensors",
-        "fp8_e4m3fn",
-        "disabled",
-        "offload_device"
-      ]
-    },
-,
-        true,
-        3,
-        0.0,
-        true,
-        false,
-        true,
-        false,
-        ""
-      ]
-    },
-    {
-      "id": 2,
-      "type": "WanVideoModelLoader",
-      "pos": [50, 300],
-      "size": { "0": 315, "1": 150 },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        { "name": "model", "type": "WANVIDEOMODEL", "links": [1], "slot_index": 0 }
-      ],
-      "properties": {
-        "Node name for S&R": "WanVideoModelLoader"
-      },
-      "widgets_values": [
-        "Wan2.1_T2V_1.3B_BF16.safetensors",
-        "bf16",
-        "disabled",
-        "offload_device"
+        "wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors"
       ]
     },
     {
       "id": 3,
       "type": "WanVideoVAELoader",
-      "pos": [50, 500],
+      "pos": [50, 600],
       "size": { "0": 315, "1": 80 },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -108,7 +70,7 @@
     {
       "id": 4,
       "type": "LoadWanVideoT5TextEncoder",
-      "pos": [50, 650],
+      "pos": [50, 750],
       "size": { "0": 315, "1": 100 },
       "flags": {},
       "order": 3,
@@ -129,7 +91,7 @@
     {
       "id": 5,
       "type": "WanVideoTextEncode",
-      "pos": [400, 300],
+      "pos": [450, 300],
       "size": { "0": 400, "1": 200 },
       "flags": {},
       "order": 4,
@@ -144,14 +106,18 @@
         "Node name for S&R": "WanVideoTextEncode"
       },
       "widgets_values": [
-        "A cinematic shot of a cyberpunk city, rain, neon lights, 4k, highly detailed, photorealistic",
-        "blur, low quality, watermark, text, bad anatomy, distortion"
+        "A cinematic shot of a cyberpunk city, rain, neon lights, 4k, highly detailed, photorealistic, motion",
+        "blur, low quality, watermark, text, bad anatomy, distortion, static",
+        true,
+        null,
+        false,
+        "gpu"
       ]
     },
     {
       "id": 6,
       "type": "WanVideoEmptyEmbeds",
-      "pos": [400, 550],
+      "pos": [450, 550],
       "size": { "0": 315, "1": 100 },
       "flags": {},
       "order": 5,
@@ -172,7 +138,7 @@
     {
       "id": 7,
       "type": "WanVideoSampler",
-      "pos": [850, 300],
+      "pos": [900, 300],
       "size": { "0": 350, "1": 300 },
       "flags": {},
       "order": 6,
@@ -202,7 +168,7 @@
     {
       "id": 8,
       "type": "VAEDecode",
-      "pos": [1250, 300],
+      "pos": [1300, 300],
       "size": { "0": 210, "1": 46 },
       "flags": {},
       "order": 7,
@@ -222,7 +188,7 @@
     {
       "id": 9,
       "type": "VHS_VideoCombine",
-      "pos": [1500, 300],
+      "pos": [1550, 300],
       "size": { "0": 315, "1": 250 },
       "flags": {},
       "order": 8,
@@ -238,7 +204,7 @@
         {
           "frame_rate": 16,
           "loop_count": 0,
-          "filename_prefix": "Wan2.1_Video",
+          "filename_prefix": "Wan2.2_Dual",
           "format": "video/h264-mp4",
           "pix_fmt": "yuv420p",
           "crf": 19,
@@ -250,14 +216,15 @@
     }
   ],
   "links": [
-    [1, 2, 0, 7, 0, "WANVIDEOMODEL"],
+    [1, 1, 0, 7, 0, "WANVIDEOMODEL"],
     [2, 3, 0, 7, 3, "WANVAE"],
     [3, 4, 0, 5, 0, "WANTEXTENCODER"],
     [4, 5, 0, 7, 2, "WANVIDEOTEXTEMBEDS"],
     [5, 6, 0, 7, 1, "WANVIDIMAGE_EMBEDS"],
     [6, 7, 0, 8, 0, "LATENT"],
     [7, 8, 0, 9, 0, "IMAGE"],
-    [10, 3, 0, 8, 1, "VAE"]
+    [10, 3, 0, 8, 1, "VAE"],
+    [11, 10, 0, 1, 0, "VACEPATH"]
   ],
   "groups": [],
   "config": {},

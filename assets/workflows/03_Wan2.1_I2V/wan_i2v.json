@@ -16,7 +16,7 @@
         "Node name for S&R": "HuggingFaceDownloader"
       },
       "widgets_values": [
-        "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_14b_480p_fp8_e4m3fn.safetensors diffusion_models wan2.1_i2v_14b_480p_fp8_e4m3fn.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors clip_vision clip_vision_h.safetensors\nhttps://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B/resolve/main/Wan2.1_VAE.safetensors vae Wan2.1_VAE.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors text_encoders umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_fp8_e4m3fn.safetensors diffusion_models wan2.1_i2v_480p_14B_fp8_e4m3fn.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors clip_vision clip_vision_h.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors vae wan_2.1_vae.safetensors\nhttps://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors text_encoders umt5_xxl_fp8_e4m3fn_scaled.safetensors",
         true,
         3,
         0.0,
@@ -43,7 +43,7 @@
         "Node name for S&R": "WanVideoModelLoader"
       },
       "widgets_values": [
-        "wan2.1_i2v_14b_480p_fp8_e4m3fn.safetensors",
+        "wan2.1_i2v_480p_14B_fp8_e4m3fn.safetensors",
         "fp8_e4m3fn",
         "disabled",
         "offload_device"

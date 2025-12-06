@@ -1,0 +1,59 @@
+==============================================================================
+   FEDDAKALKUN ComfyUI Suite - Quick Start Guide
+==============================================================================
+
+Welcome to the FEDDAKALKUN ComfyUI Suite! This is a portable, high-performance
+AI generation environment pre-configured with advanced workflows.
+
+------------------------------------------------------------------------------
+1. INSTALLATION
+------------------------------------------------------------------------------
+   [ ] Double-click 'install.bat'.
+       - This sets up the portable Python, Git, and ComfyUI environment.
+       - It installs all required custom nodes and dependencies.
+       - Wait for the "Portable Installation Complete!" message.
+
+------------------------------------------------------------------------------
+2. MODEL SETUP (Choose One)
+------------------------------------------------------------------------------
+   OPTION A: I have the '0-ALL-MODELS-SCRIPTS' folder
+   [ ] Double-click 'import_models.bat'.
+       - This instantly links your local models to ComfyUI.
+       - No downloading required!
+
+   OPTION B: I don't have models yet
+   [ ] Just proceed to Step 3.
+       - The workflows are configured to auto-download models on their first run.
+       - Note: This will require significant disk space and internet bandwidth.
+
+------------------------------------------------------------------------------
+3. LAUNCHING
+------------------------------------------------------------------------------
+   [ ] Double-click 'start_suite.bat'.
+       - This opens ComfyUI in your default web browser.
+       - If it doesn't open, go to http://127.0.0.1:8188 manually.
+
+------------------------------------------------------------------------------
+4. RUNNING WORKFLOWS
+------------------------------------------------------------------------------
+   1. In ComfyUI, click the "Load" button (right sidebar).
+   2. Navigate to 'assets/workflows' and choose a workflow:
+
+      - 01_Generation_Test: Simple "Hello World" to test your GPU.
+      - 02_Wan2.1_Video:    Text-to-Video generation (High Quality).
+      - 03_Wan2.1_I2V:      Image-to-Video animation.
+      - 04_Ultimate_Upscale: Turn images into 4K masterpieces.
+      - 05_Wan2.2_Dual:     Advanced dual-model video generation.
+
+   3. Click "Queue Prompt" to run!
+
+------------------------------------------------------------------------------
+5. TOOLS & EXTRAS
+------------------------------------------------------------------------------
+   - scrape_reddit.bat:  Download training images from Reddit.
+   - update_suite.bat:   Update ComfyUI and this suite to the latest version.
+   - WORKFLOWS.md:       Detailed documentation for each workflow.
+
+==============================================================================
+   Enjoy creating!
+==============================================================================
