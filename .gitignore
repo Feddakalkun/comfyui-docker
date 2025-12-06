@@ -1,0 +1,16 @@
+# Generated Directories
+ComfyUI/
+python_embeded/
+git_embeded/
+node_embeded/
+logs/
+
+# Temporary Files
+*.zip
+*.tmp
+*.log
+get-pip.py
+
+# System Files
+.DS_Store
+Thumbs.db

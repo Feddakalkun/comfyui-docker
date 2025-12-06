@@ -1,0 +1,20 @@
+[
+  {
+    "name": "SDXL Base 1.0",
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors",
+    "path": "models/checkpoints",
+    "filename": "sd_xl_base_1.0.safetensors"
+  },
+  {
+    "name": "SDXL Refiner 1.0",
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors",
+    "path": "models/checkpoints",
+    "filename": "sd_xl_refiner_1.0.safetensors"
+  },
+  {
+    "name": "LCM LoRA (SDXL)",
+    "url": "https://huggingface.co/latent-consistency/lcm-lora-sdxl/resolve/main/pytorch_lora_weights.safetensors",
+    "path": "models/loras",
+    "filename": "lcm_lora_sdxl.safetensors"
+  }
+]
