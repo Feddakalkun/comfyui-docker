@@ -110,11 +110,6 @@
     "folder": "ComfyMath"
   },
   {
-    "name": "ComfyUI-Studio-nodes",
-    "url": "https://github.com/comfyuistudio/ComfyUI-Studio-nodes.git",
-    "folder": "ComfyUI-Studio-nodes"
-  },
-  {
     "name": "ComfyUI-WanVideoWrapper",
     "url": "https://github.com/kijai/ComfyUI-WanVideoWrapper.git",
     "folder": "ComfyUI-WanVideoWrapper"
@@ -153,5 +148,26 @@
     "name": "ComfyUI-GGUF",
     "url": "https://github.com/city96/ComfyUI-GGUF.git",
     "folder": "ComfyUI-GGUF"
+  },
+  {
+    "name": "SeargeSDXL",
+    "url": "https://github.com/SeargeDP/SeargeSDXL.git",
+    "folder": "SeargeSDXL"
+  },
+  {
+    "name": "ComfyUI_Searge_LLM",
+    "url": "https://github.com/SeargeDP/ComfyUI_Searge_LLM.git",
+    "folder": "ComfyUI_Searge_LLM"
+  },
+  {
+    "name": "ComfyUI-Florence2",
+    "url": "https://github.com/kijai/ComfyUI-Florence2.git",
+    "folder": "ComfyUI-Florence2"
+  },
+  {
+    "name": "AutoModelFetcher",
+    "url": "local",
+    "folder": "none",
+    "local": true
   }
 ]

@@ -1,16 +1,46 @@
-# Generated Directories
+# === AUTO-GENERATED DIRECTORIES (Not in repo) ===
 ComfyUI/
 python_embeded/
 git_embeded/
 node_embeded/
 logs/
+custom_nodes/
+output/
+input/
+user/
+temp/
 
-# Temporary Files
+# === GENERATED FILES ===
 *.zip
 *.tmp
 *.log
+*.cat
 get-pip.py
+install_log.txt
+all_nodes.json
+package-lock.json
+mingit.zip
+node.zip
+python_embed.zip
 
-# System Files
+# === SYSTEM FILES ===
 .DS_Store
 Thumbs.db
+*.pyc
+__pycache__/
+*.egg-info/
+.venv/
+venv/
+
+# === IDE/EDITOR ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === DOCUMENTATION (optional - included in minimal deployment) ===
+# If you want to keep these in repo, remove from gitignore:
+# FLAGSHIP_WORKFLOW_SUMMARY.txt
+# INSTALLATION_CHECKLIST.txt
+# INTERNAL_BUILD_SUMMARY.txt

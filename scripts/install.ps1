@@ -187,6 +187,12 @@ $SkippedCount = 0
 $FailedCount = 0
 
 foreach ($Node in $NodesConfig) {
+    # Skip local nodes (e.g., AutoModelFetcher)
+    if ($Node.local -eq $true) {
+        Write-Log "[$($Node.name)] - Local node, skipping git clone"
+        continue
+    }
+    
     $NodeDir = Join-Path $CustomNodesDir $Node.folder
     if (-not (Test-Path $NodeDir)) {
         Write-Log "Installing $($Node.name)..."
