@@ -118,5 +118,30 @@
     "name": "ComfyUI-WanVideoWrapper",
     "url": "https://github.com/kijai/ComfyUI-WanVideoWrapper.git",
     "folder": "ComfyUI-WanVideoWrapper"
+  },
+  {
+    "name": "ComfyUI_LayerStyle",
+    "url": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
+    "folder": "ComfyUI_LayerStyle"
+  },
+  {
+    "name": "ComfyUI-Image-Selector",
+    "url": "https://github.com/SLAPaper/ComfyUI-Image-Selector.git",
+    "folder": "ComfyUI-Image-Selector"
+  },
+  {
+    "name": "ComfyUI-Frame-Interpolation",
+    "url": "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation.git",
+    "folder": "ComfyUI-Frame-Interpolation"
+  },
+  {
+    "name": "ComfyUI-Easy-Use",
+    "url": "https://github.com/yolain/ComfyUI-Easy-Use.git",
+    "folder": "ComfyUI-Easy-Use"
+  },
+  {
+    "name": "mikey_nodes",
+    "url": "https://github.com/bash-j/mikey_nodes.git",
+    "folder": "mikey_nodes"
   }
 ]
