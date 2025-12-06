@@ -5,7 +5,10 @@
 $ErrorActionPreference = "Stop"
 $ScriptPath = $PSScriptRoot
 $RootPath = Split-Path -Parent $ScriptPath
+$RootPath = (Resolve-Path $RootPath).Path  # Ensure absolute path
 Set-Location $RootPath
+
+Write-Host "Installation root: $RootPath"
 
 # Ensure logs directory exists
 if (-not (Test-Path "logs")) { New-Item -ItemType Directory -Path "logs" | Out-Null }
@@ -143,10 +146,11 @@ function Run-Git {
 
 # 4. Setup ComfyUI Repository
 Write-Log "`n[4/9] Setting up ComfyUI repository..."
-if (-not (Test-Path "ComfyUI")) {
+$ComfyDir = Join-Path $RootPath "ComfyUI"
+if (-not (Test-Path $ComfyDir)) {
     Write-Log "Cloning ComfyUI repository..."
     try {
-        Run-Git "clone --depth 1 https://github.com/comfyanonymous/ComfyUI.git"
+        Run-Git "clone --depth 1 https://github.com/comfyanonymous/ComfyUI.git `"$ComfyDir`""
         Write-Log "ComfyUI cloned successfully."
     } catch {
         Write-Log "ERROR: Failed to clone ComfyUI repository."
