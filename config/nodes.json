@@ -143,5 +143,15 @@
     "name": "mikey_nodes",
     "url": "https://github.com/bash-j/mikey_nodes.git",
     "folder": "mikey_nodes"
+  },
+  {
+    "name": "ComfyUI-JoyCaption",
+    "url": "https://github.com/fpgaminer/joycaption_comfyui.git",
+    "folder": "joycaption_comfyui"
+  },
+  {
+    "name": "ComfyUI-GGUF",
+    "url": "https://github.com/city96/ComfyUI-GGUF.git",
+    "folder": "ComfyUI-GGUF"
   }
 ]
