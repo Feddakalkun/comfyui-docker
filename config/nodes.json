@@ -169,5 +169,20 @@
     "url": "local",
     "folder": "none",
     "local": true
+  },
+  {
+    "name": "ComfyUI-Styles-CSV-Loader",
+    "url": "https://github.com/theUpsider/ComfyUI-Styles_CSV_Loader.git",
+    "folder": "ComfyUI-Styles_CSV_Loader"
+  },
+  {
+    "name": "ComfyUI-Image-Saver",
+    "url": "https://github.com/farizrifqi/ComfyUI-Image-Saver.git",
+    "folder": "ComfyUI-Image-Saver"
+  },
+  {
+    "name": "ComfyUI-Image-Filters",
+    "url": "https://github.com/spacepxl/ComfyUI-Image-Filters.git",
+    "folder": "ComfyUI-Image-Filters"
   }
 ]
