@@ -1,0 +1,204 @@
+{
+  "last_node_id": 34,
+  "last_link_id": 52,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [-1400, 200],
+      "size": [320, 380],
+      "widgets_values": ["input.png", "image"],
+      "outputs": [ { "name": "IMAGE", "type": "IMAGE", "links": [10] } ]
+    },
+    {
+      "id": 2,
+      "type": "CheckpointLoaderSimple",
+      "pos": [-1400, 650],
+      "size": [320, 120],
+      "widgets_values": ["z_image_turbo_bf16.safetensors", "auto"],
+      "outputs": [
+        { "name": "MODEL", "type": "MODEL", "links": [20, 30] },
+        { "name": "CLIP", "type": "CLIP", "links": [21] },
+        { "name": "VAE", "type": "VAE", "links": [12] }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [-1060, 650],
+      "size": [260, 80],
+      "widgets_values": ["z-image-vae.safetensors"],
+      "inputs": [],
+      "outputs": [ { "name": "VAE", "type": "VAE", "links": [13] } ]
+    },
+    {
+      "id": 4,
+      "type": "LoraLoader",
+      "pos": [-1060, 820],
+      "size": [260, 120],
+      "widgets_values": ["my_new_z_image_lora.safetensors", 1.0, 1.0],
+      "inputs": [ { "name": "model", "type": "MODEL", "link": 20 }, { "name": "clip", "type": "CLIP", "link": 21 } ],
+      "outputs": [ { "name": "MODEL", "type": "MODEL", "links": [22] }, { "name": "CLIP", "type": "CLIP", "links": [23] } ]
+    },
+    {
+      "id": 5,
+      "type": "Load Styles CSV",
+      "pos": [-1740, 1080],
+      "size": [340, 90],
+      "widgets_values": ["No Style"],
+      "outputs": [ { "name": "positive prompt", "type": "STRING", "links": [31] }, { "name": "negative prompt", "type": "STRING", "links": [32] } ]
+    },
+    {
+      "id": 6,
+      "type": "String Literal",
+      "pos": [-1740, 1220],
+      "size": [340, 120],
+      "title": "NEGATIVE BASE",
+      "widgets_values": ["lowres, bad hands, extra digits, deformed, watermark, text"],
+      "outputs": [ { "name": "STRING", "type": "STRING", "links": [33] } ]
+    },
+    {
+      "id": 7,
+      "type": "Searge LLM Chat",
+      "pos": [-1740, 880],
+      "size": [520, 180],
+      "widgets_values": [
+        "Write a concise z-image NSFW prompt in keyword:value style. Include: subject, camera, lens, lighting, skin detail, realism, composition. Output only the prompt.",
+        "female portrait, studio, soft light",
+        "Mistral-7B-Instruct-v0.3.Q4_K_M.gguf",
+        128
+      ],
+      "outputs": [ { "name": "response", "type": "STRING", "links": [24] } ]
+    },
+    {
+      "id": 8,
+      "type": "Text Concatenate",
+      "pos": [-1280, 950],
+      "size": [280, 140],
+      "widgets_values": [", ", "true"],
+      "inputs": [ { "name": "text_a", "type": "STRING", "link": 24 }, { "name": "text_b", "type": "STRING", "link": 31 } ],
+      "outputs": [ { "name": "STRING", "type": "STRING", "links": [25] } ]
+    },
+    {
+      "id": 9,
+      "type": "CLIPTextEncode",
+      "pos": [-980, 950],
+      "size": [340, 120],
+      "title": "POSITIVE",
+      "inputs": [ { "name": "clip", "type": "CLIP", "link": 23 }, { "name": "text", "type": "STRING", "link": 25 } ],
+      "outputs": [ { "name": "CONDITIONING", "type": "CONDITIONING", "links": [26] } ]
+    },
+    {
+      "id": 10,
+      "type": "Text Concatenate",
+      "pos": [-1280, 1100],
+      "size": [280, 140],
+      "widgets_values": [", ", "true"],
+      "inputs": [ { "name": "text_a", "type": "STRING", "link": 32 }, { "name": "text_b", "type": "STRING", "link": 33 } ],
+      "outputs": [ { "name": "STRING", "type": "STRING", "links": [27] } ]
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncode",
+      "pos": [-980, 1100],
+      "size": [340, 120],
+      "title": "NEGATIVE",
+      "inputs": [ { "name": "clip", "type": "CLIP", "link": 23 }, { "name": "text", "type": "STRING", "link": 27 } ],
+      "outputs": [ { "name": "CONDITIONING", "type": "CONDITIONING", "links": [28] } ]
+    },
+    {
+      "id": 12,
+      "type": "VAEEncode",
+      "pos": [-1060, 300],
+      "size": [260, 100],
+      "inputs": [ { "name": "vae", "type": "VAE", "link": 12 }, { "name": "pixels", "type": "IMAGE", "link": 10 } ],
+      "outputs": [ { "name": "LATENT", "type": "LATENT", "links": [29] } ]
+    },
+    {
+      "id": 13,
+      "type": "KSampler",
+      "pos": [-720, 520],
+      "size": [320, 220],
+      "widgets_values": ["euler", 30, 7.5, 1.0, "fixed", 0],
+      "inputs": [
+        { "name": "model", "type": "MODEL", "link": 22 },
+        { "name": "positive", "type": "CONDITIONING", "link": 26 },
+        { "name": "negative", "type": "CONDITIONING", "link": 28 },
+        { "name": "latent_image", "type": "LATENT", "link": 29 }
+      ],
+      "outputs": [ { "name": "LATENT", "type": "LATENT", "links": [34] } ]
+    },
+    {
+      "id": 14,
+      "type": "VAEDecode",
+      "pos": [-360, 520],
+      "size": [260, 100],
+      "inputs": [ { "name": "vae", "type": "VAE", "link": 13 }, { "name": "samples", "type": "LATENT", "link": 34 } ],
+      "outputs": [ { "name": "IMAGE", "type": "IMAGE", "links": [40] } ]
+    },
+    {
+      "id": 15,
+      "type": "BlurMaskFast",
+      "pos": [-360, 700],
+      "size": [240, 90],
+      "widgets_values": [80, 80],
+      "inputs": [ { "name": "masks", "type": "IMAGE", "link": 40 } ],
+      "outputs": [ { "name": "MASK", "type": "MASK", "links": [41] } ]
+    },
+    {
+      "id": 16,
+      "type": "Cut By Mask",
+      "pos": [-40, 520],
+      "size": [300, 120],
+      "inputs": [ { "name": "image", "type": "IMAGE", "link": 40 }, { "name": "mask", "type": "MASK", "link": 41 } ],
+      "outputs": [ { "name": "IMAGE", "type": "IMAGE", "links": [42] } ]
+    },
+    {
+      "id": 17,
+      "type": "Image Scale",
+      "pos": [300, 520],
+      "size": [220, 90],
+      "widgets_values": [2.0, 2.0, "lanczos"],
+      "inputs": [ { "name": "image", "type": "IMAGE", "link": 42 } ],
+      "outputs": [ { "name": "IMAGE", "type": "IMAGE", "links": [43] } ]
+    },
+    {
+      "id": 18,
+      "type": "SaveImage",
+      "pos": [560, 520],
+      "size": [240, 140],
+      "widgets_values": ["IMAGE/ZIMAGE_SKINFIX/0"],
+      "inputs": [ { "name": "images", "type": "IMAGE", "link": 43 } ]
+    }
+  ],
+  "links": [
+    [10, 1, 0, 12, 1, "IMAGE"],
+    [12, 2, 2, 12, 0, "VAE"],
+    [13, 3, 0, 14, 0, "VAE"],
+    [20, 2, 0, 4, 0, "MODEL"],
+    [21, 2, 1, 4, 1, "CLIP"],
+    [22, 4, 0, 13, 0, "MODEL"],
+    [23, 4, 1, 9, 0, "CLIP"],
+    [24, 7, 0, 8, 0, "STRING"],
+    [25, 8, 0, 9, 1, "STRING"],
+    [26, 9, 0, 13, 1, "CONDITIONING"],
+    [27, 10, 0, 11, 1, "STRING"],
+    [28, 11, 0, 13, 2, "CONDITIONING"],
+    [29, 12, 0, 13, 3, "LATENT"],
+    [30, 2, 0, 3, 0, "MODEL"],
+    [31, 5, 0, 8, 1, "STRING"],
+    [32, 5, 1, 10, 0, "STRING"],
+    [33, 6, 0, 10, 1, "STRING"],
+    [34, 13, 0, 14, 1, "LATENT"],
+    [40, 14, 0, 15, 0, "IMAGE"],
+    [41, 15, 0, 16, 1, "MASK"],
+    [42, 16, 0, 17, 0, "IMAGE"],
+    [43, 17, 0, 18, 0, "IMAGE"]
+  ],
+  "groups": [
+    { "title": "Input & Encode", "bounds": [-1460, 120, 460, 500], "color": "#1a1f2a" },
+    { "title": "Prompting (LLM + Styles)", "bounds": [-1800, 820, 760, 520], "color": "#242b3a" },
+    { "title": "Z-Image Generation", "bounds": [-1100, 480, 800, 380], "color": "#1f2d24" },
+    { "title": "Skinfix & Upscale", "bounds": [-420, 460, 1300, 260], "color": "#2e2626" }
+  ]
+}
