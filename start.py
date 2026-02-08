@@ -5,11 +5,13 @@ import json
 import sys
 
 # --- CONFIG ---
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = "/workspace"
 COMFY_DIR = os.path.join(ROOT, "ComfyUI")
-NODES_CONFIG = "config/nodes.json"
-MODELS_CONFIG = "config/models.json"
-MODEL_SOURCES = "config/model_sources.txt"
+NODES_CONFIG = os.path.join(SCRIPT_DIR, "config/nodes.json")
+MODELS_CONFIG = os.path.join(SCRIPT_DIR, "config/models.json")
+MODEL_SOURCES = os.path.join(SCRIPT_DIR, "config/model_sources.txt")
+WORKFLOW_SRC = os.path.join(SCRIPT_DIR, "assets/workflows/workflows")
 
 def run_cmd(cmd, cwd=None):
     print(f">> Running: {cmd}")
@@ -46,16 +48,15 @@ def setup():
 
     # 5. Sync Workflows
     print("Syncing workflows...")
-    workflow_src = "assets/workflows/workflows"
     workflow_dest = os.path.join(COMFY_DIR, "user/default/workflows")
     
-    if os.path.exists(workflow_src):
+    if os.path.exists(WORKFLOW_SRC):
         if not os.path.exists(workflow_dest):
             os.makedirs(workflow_dest, exist_ok=True)
         
-        for f in os.listdir(workflow_src):
+        for f in os.listdir(WORKFLOW_SRC):
             if f.endswith(".json"):
-                 shutil.copy(os.path.join(workflow_src, f), workflow_dest)
+                 shutil.copy(os.path.join(WORKFLOW_SRC, f), workflow_dest)
                  print(f"Copied: {f}")
 
     print("\n" + "="*40)
