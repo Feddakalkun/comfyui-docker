@@ -209,5 +209,20 @@
     "name": "ComfyUI-Segment-Anything",
     "url": "https://github.com/storyicon/comfyui_segment_anything.git",
     "folder": "ComfyUI-Segment-Anything"
+  },
+  {
+    "name": "ComfyUI-Inpaint-CropAndStitch",
+    "url": "https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git",
+    "folder": "ComfyUI-Inpaint-CropAndStitch"
+  },
+  {
+    "name": "ComfyUI_LayerStyle_Advance",
+    "url": "https://github.com/chflame163/ComfyUI_LayerStyle_Advance.git",
+    "folder": "ComfyUI_LayerStyle_Advance"
+  },
+  {
+    "name": "Comfy-Image-Saver-Giriss",
+    "url": "https://github.com/giriss/comfy-image-saver.git",
+    "folder": "comfy-image-saver"
   }
 ]
