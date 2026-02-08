@@ -53,10 +53,24 @@ def setup():
     print("Installing universal dependencies...")
     run_cmd("pip install onnxruntime-gpu setuptools pydantic opencv-python onnx scikit-image colorama facexlib", cwd=COMFY_DIR)
 
-    # 5. Sync Workflows
-    print("Syncing workflows...")
+    # 5. Sync Workflows and Assets
+    print("Syncing workflows and assets...")
     workflow_dest = os.path.join(COMFY_DIR, "user/default/workflows")
     
+    # Copy styles.csv to ComfyUI root
+    styles_src = os.path.join(SCRIPT_DIR, "styles.csv")
+    if os.path.exists(styles_src):
+        shutil.copy(styles_src, os.path.join(COMFY_DIR, "styles.csv"))
+        print("Copied: styles.csv")
+
+    # Ensure model subdirectories exist (helps some nodes find models)
+    model_dirs = [
+        "models/ultralytics/bbox",
+        "models/sams"
+    ]
+    for d in model_dirs:
+        os.makedirs(os.path.join(COMFY_DIR, d), exist_ok=True)
+
     if os.path.exists(WORKFLOW_SRC):
         if not os.path.exists(workflow_dest):
             os.makedirs(workflow_dest, exist_ok=True)
