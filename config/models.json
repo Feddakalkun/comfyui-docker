@@ -16,5 +16,17 @@
     "url": "https://huggingface.co/latent-consistency/lcm-lora-sdxl/resolve/main/pytorch_lora_weights.safetensors",
     "path": "models/loras",
     "filename": "lcm_lora_sdxl.safetensors"
+  },
+  {
+    "name": "Face YOLOv8m (Impact Pack)",
+    "url": "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt",
+    "path": "models/ultralytics/bbox",
+    "filename": "face_yolov8m.pt"
+  },
+  {
+    "name": "SAM ViT-B (Impact Pack)",
+    "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth",
+    "path": "models/sams",
+    "filename": "sam_vit_b_01ec64.pth"
   }
 ]

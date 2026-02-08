@@ -63,14 +63,24 @@ def setup():
         shutil.copy(styles_src, os.path.join(COMFY_DIR, "styles.csv"))
         print("Copied: styles.csv")
 
-    # Ensure model subdirectories exist (helps some nodes find models)
-    model_dirs = [
-        "models/ultralytics/bbox",
-        "models/sams"
-    ]
-    for d in model_dirs:
-        os.makedirs(os.path.join(COMFY_DIR, d), exist_ok=True)
+    # 6. Download Models
+    if os.path.exists(MODELS_CONFIG):
+        with open(MODELS_CONFIG, 'r') as f:
+            models = json.load(f)
+        
+        for m in models:
+            target_path = os.path.join(COMFY_DIR, m["path"])
+            os.makedirs(target_path, exist_ok=True)
+            file_dest = os.path.join(target_path, m["filename"])
+            
+            if not os.path.exists(file_dest):
+                print(f"Downloading {m['name']}...")
+                # Using wget for robust downloads on RunPod
+                run_cmd(f"wget -c {m['url']} -O {file_dest}")
+            else:
+                print(f"Model already exists: {m['filename']}")
 
+    # 7. Sync Workflows
     if os.path.exists(WORKFLOW_SRC):
         if not os.path.exists(workflow_dest):
             os.makedirs(workflow_dest, exist_ok=True)
