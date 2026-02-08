@@ -231,18 +231,28 @@
     "folder": "ComfyUI-LTXV"
   },
   {
-    "name": "ComfyUI_Custom_Nodes_CR",
-    "url": "https://github.com/Suzie1/ComfyUI_Custom_Nodes_A_Pre_Release_Version.git",
-    "folder": "ComfyUI_Custom_Nodes_CR"
+    "name": "ComfyUI-LTXVideo-Lightricks",
+    "url": "https://github.com/Lightricks/ComfyUI-LTXVideo.git",
+    "folder": "ComfyUI-LTXVideo"
+  },
+  {
+    "name": "Comfyroll-Custom-Nodes",
+    "url": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git",
+    "folder": "ComfyUI_Comfyroll_CustomNodes"
+  },
+  {
+    "name": "ComfyUI-Various-JamesWalker",
+    "url": "https://github.com/jamesWalker55/comfyui-various.git",
+    "folder": "comfyui-various"
+  },
+  {
+    "name": "ComfyUI-MelBandRoFormer",
+    "url": "https://github.com/kijai/ComfyUI-MelBandRoFormer.git",
+    "folder": "ComfyUI-MelBandRoFormer"
   },
   {
     "name": "ComfyUI-AudioSeparator",
     "url": "https://github.com/kijai/ComfyUI-AudioSeparator.git",
     "folder": "ComfyUI-AudioSeparator"
-  },
-  {
-    "name": "comfyui-jw-nodes",
-    "url": "https://github.com/jags111/comfyui-jw-nodes.git",
-    "folder": "comfyui-jw-nodes"
   }
 ]
