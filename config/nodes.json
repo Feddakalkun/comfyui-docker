@@ -224,5 +224,25 @@
     "name": "Comfy-Image-Saver-Giriss",
     "url": "https://github.com/giriss/comfy-image-saver.git",
     "folder": "comfy-image-saver"
+  },
+  {
+    "name": "ComfyUI-LTXV",
+    "url": "https://github.com/kijai/ComfyUI-LTXV.git",
+    "folder": "ComfyUI-LTXV"
+  },
+  {
+    "name": "ComfyUI_Custom_Nodes_CR",
+    "url": "https://github.com/Suzie1/ComfyUI_Custom_Nodes_A_Pre_Release_Version.git",
+    "folder": "ComfyUI_Custom_Nodes_CR"
+  },
+  {
+    "name": "ComfyUI-AudioSeparator",
+    "url": "https://github.com/kijai/ComfyUI-AudioSeparator.git",
+    "folder": "ComfyUI-AudioSeparator"
+  },
+  {
+    "name": "comfyui-jw-nodes",
+    "url": "https://github.com/jags111/comfyui-jw-nodes.git",
+    "folder": "comfyui-jw-nodes"
   }
 ]
