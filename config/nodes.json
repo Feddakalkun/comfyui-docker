@@ -184,5 +184,30 @@
     "name": "ComfyUI-Image-Filters",
     "url": "https://github.com/spacepxl/ComfyUI-Image-Filters.git",
     "folder": "ComfyUI-Image-Filters"
+  },
+  {
+    "name": "ComfyUI-Custom-Scripts",
+    "url": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git",
+    "folder": "ComfyUI-Custom-Scripts"
+  },
+  {
+    "name": "ComfyUI-ControlNet-Aux",
+    "url": "https://github.com/Fannovel16/comfyui_controlnet_aux.git",
+    "folder": "ComfyUI-ControlNet-Aux"
+  },
+  {
+    "name": "ComfyUI-Lotus",
+    "url": "https://github.com/kijai/ComfyUI-Lotus.git",
+    "folder": "ComfyUI-Lotus"
+  },
+  {
+    "name": "ComfyUI-Impact-Subpack",
+    "url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git",
+    "folder": "ComfyUI-Impact-Subpack"
+  },
+  {
+    "name": "ComfyUI-Segment-Anything",
+    "url": "https://github.com/storyicon/comfyui_segment_anything.git",
+    "folder": "ComfyUI-Segment-Anything"
   }
 ]

@@ -39,12 +39,19 @@ def setup():
             if not os.path.exists(node_path):
                 print(f"Installing {node['name']}...")
                 run_cmd(f"git clone --depth 1 {node['url']} {node_path}")
+                
+            # Install requirements for this specific node if they exist
+            req_file = os.path.join(node_path, "requirements.txt")
+            if os.path.exists(req_file):
+                print(f"Installing requirements for {node['name']}...")
+                run_cmd(f"pip install -r {req_file}")
 
     # 4. Install Requirements
-    print("Installing dependencies...")
+    print("Installing main dependencies...")
     run_cmd(f"pip install -r requirements.txt", cwd=COMFY_DIR)
     # Install additional common deps often missing in basic pods
-    run_cmd("pip install onnxruntime-gpu setuptools pydantic", cwd=COMFY_DIR)
+    print("Installing universal dependencies...")
+    run_cmd("pip install onnxruntime-gpu setuptools pydantic opencv-python onnx scikit-image colorama facexlib", cwd=COMFY_DIR)
 
     # 5. Sync Workflows
     print("Syncing workflows...")
